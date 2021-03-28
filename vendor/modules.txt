@@ -87,6 +87,18 @@ github.com/go-ole/go-ole
 github.com/go-ole/go-ole/oleutil
 # github.com/go-stack/stack v1.8.0
 github.com/go-stack/stack
+# github.com/gobuffalo/logger v1.0.3
+github.com/gobuffalo/logger
+# github.com/gobuffalo/packd v1.0.0
+github.com/gobuffalo/packd
+github.com/gobuffalo/packd/internal/takeon/github.com/markbates/errx
+# github.com/gobuffalo/packr/v2 v2.8.1
+github.com/gobuffalo/packr/v2
+github.com/gobuffalo/packr/v2/file
+github.com/gobuffalo/packr/v2/file/resolver
+github.com/gobuffalo/packr/v2/file/resolver/encoding/hex
+github.com/gobuffalo/packr/v2/jam/parser
+github.com/gobuffalo/packr/v2/plog
 # github.com/golang/protobuf v1.4.3
 github.com/golang/protobuf/proto
 github.com/golang/protobuf/protoc-gen-go/descriptor
@@ -128,10 +140,18 @@ github.com/huin/goupnp/ssdp
 github.com/jackpal/go-nat-pmp
 # github.com/karalabe/usb v0.0.0-20190919080040-51dc0efba356
 github.com/karalabe/usb
+# github.com/karrick/godirwalk v1.15.8
+github.com/karrick/godirwalk
 # github.com/konsorten/go-windows-terminal-sequences v1.0.3
 github.com/konsorten/go-windows-terminal-sequences
 # github.com/magiconair/properties v1.8.4
 github.com/magiconair/properties
+# github.com/markbates/errx v1.1.0
+github.com/markbates/errx
+# github.com/markbates/oncer v1.0.0
+github.com/markbates/oncer
+# github.com/markbates/safe v1.0.1
+github.com/markbates/safe
 # github.com/mattn/go-runewidth v0.0.4
 github.com/mattn/go-runewidth
 # github.com/miguelmota/go-solidity-sha3 v0.0.2-0.20190227073334-b8eb399c1071
@@ -205,6 +225,7 @@ golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/ripemd160
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/sha3
+golang.org/x/crypto/ssh/terminal
 # golang.org/x/net v0.0.0-20200822124328-c89045814202
 golang.org/x/net/html
 golang.org/x/net/html/atom

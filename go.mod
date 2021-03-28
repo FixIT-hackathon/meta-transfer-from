@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/ethereum/go-ethereum v1.10.1
+	github.com/gobuffalo/packr/v2 v2.8.1
 	github.com/google/jsonapi v0.0.0-20210306203318-b10ff4bf785b
 	github.com/miguelmota/go-solidity-sha3 v0.0.2-0.20190227073334-b8eb399c1071
 	gitlab.com/distributed_lab/figure v2.1.0+incompatible
