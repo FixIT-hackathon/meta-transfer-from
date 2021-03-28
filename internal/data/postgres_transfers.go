@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"sync"
 
-	"gitlab.com/distributed_lab/logan/v3/errors"
-
 	sq "github.com/Masterminds/squirrel"
 	"github.com/fatih/structs"
 	"gitlab.com/distributed_lab/kit/pgdb"
@@ -15,7 +13,6 @@ const (
 	transfersTable = "transfers"
 )
 
-var ErrNotFound = errors.New("record not found")
 
 var transfersSelect = sq.Select(fmt.Sprintf("%s.*", transfersTable)).From(transfersTable)
 

@@ -14,15 +14,16 @@ type Transfers interface {
 
 type Transfer struct {
 	ID       int64  `db:"id" structs:"-"`
-	Sender   string `db:"status" structs:"status"`
-	Receiver string `db:"tx_hash" structs:"tx_hash"`
-	Fee      string `db:"fee" structs:"type"`
-	Status   string `db:"sender" structs:"sender"`
+	Sender   string `db:"sender" structs:"sender"`
+	Receiver string `db:"receiver" structs:"receiver"`
+	Fee      string `db:"fee" structs:"fee"`
+	ERC20    string `db:"erc20" structs:"erc20"`
 	Amount   string `db:"amount" structs:"amount"`
+	Status   string `db:"status" structs:"status"`
 
-	R        string `db:"r" structs:"r"`
-	S        string `db:"r" structs:"s"`
-	V        string `db:"r" structs:"v"`
+	R string `db:"r" structs:"r"`
+	S string `db:"r" structs:"s"`
+	V int    `db:"r" structs:"v"`
 
 	CreatedAt *time.Time `db:"created_at" structs:"-"`
 }
@@ -35,6 +36,9 @@ func (f *Transfer) Resource() *resources.Transfer {
 		Status:    f.Status,
 		Receiver:  f.Receiver,
 		Fee:       f.Fee,
+		R:         f.R,
+		S:         f.S,
+		V:         f.V,
 		CreatedAt: f.CreatedAt,
 	}
 }

@@ -1,7 +1,9 @@
 package handlers
 
 import (
+	"encoding/hex"
 	"fmt"
+	"github.com/FixIT-hackathon/meta-transfer-from/internal/data"
 	"github.com/FixIT-hackathon/meta-transfer-from/internal/service/api/resources"
 	"github.com/FixIT-hackathon/meta-transfer-from/pkg/responses"
 	"github.com/FixIT-hackathon/meta-transfer-from/pkg/signature"
@@ -27,7 +29,7 @@ func Push(w http.ResponseWriter, r *http.Request) {
 	rawData := []byte(fmt.Sprintf("\x19\x01%s%s", string(domainSeparator), string(typedDataHash)))
 	challengeHash := crypto.Keccak256Hash(rawData)
 
-	addr, err := signature.RecoverAddress(challengeHash.String(), req.Signature)
+	addr, err := signature.RecoverAddress(challengeHash.Bytes(), req.Signature)
 	if err != nil {
 		errorsj := []*jsonapi.ErrorObject{{
 			Title:  http.StatusText(http.StatusBadRequest),
@@ -43,6 +45,30 @@ func Push(w http.ResponseWriter, r *http.Request) {
 			Detail: "Sender and signer is not equal",
 		}}
 		responses.WriteError(w, http.StatusBadRequest, errorsj)
+		return
+	}
+
+	sigB, _ := hex.DecodeString(req.Signature)
+	param, _ := signature.ParseSignatureParameters(sigB)
+
+	_, err = TransfersQ(r).Create(data.Transfer{
+		Sender:   req.Sender,
+		Receiver: req.Receiver,
+		Fee:      "100",
+		Status:   "pending",
+		Amount:   req.Amount,
+		ERC20:    req.ERC20,
+
+		R: param.R,
+		S: param.S,
+		V: param.V,
+	})
+	if err != nil {
+		errorsj := []*jsonapi.ErrorObject{{
+			Title:  http.StatusText(http.StatusInternalServerError),
+			Detail: "failed to add to db",
+		}}
+		responses.WriteError(w, http.StatusInternalServerError, errorsj)
 		return
 	}
 

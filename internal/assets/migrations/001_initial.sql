@@ -7,9 +7,10 @@ create table transfers
     receiver      text      not null,
     amount        text      not null,
     status        text      not null,
+    erc20         text      not null,
     r             text      not null,
     s             text      not null,
-    v             numeric   not null,
+    v             int       not null,
     is_custom_fee bool      not null,
     created_at    timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

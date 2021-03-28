@@ -8,8 +8,13 @@ import (
 
 type PushRequest struct {
 	signer.TypedData `json:"data"`
-	Signature        string `json:"signature_string"`
-	Sender           string `json:"sender"`
+
+	Signature string `json:"signature_string"`
+	Sender    string `json:"sender"`
+	Amount    string `json:"amount"`
+	Receiver  string `json:"receiver"`
+	Fee       string `json:"fee"`
+	ERC20     string `json:"erc20"`
 }
 
 func NewPushRequest(r *http.Request) (*PushRequest, error) {

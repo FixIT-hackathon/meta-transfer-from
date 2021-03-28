@@ -1,33 +1,17 @@
 package signature
 
 import (
+	"encoding/hex"
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
-	"gitlab.com/distributed_lab/logan/v3/errors"
-	"strings"
 )
 
-func CheckSignature(hash, signatureS, addr string) (bool, error) {
-	addrR, err := RecoverAddress(hash, signatureS)
+func RecoverAddress(data []byte, signatureS string) (common.Address, error) {
+	sig, err := hex.DecodeString(signatureS)
 	if err != nil {
-		return false, errors.Wrap(err, "failed to recover address")
+		return common.Address{}, err
 	}
-
-	addr = strings.ToLower(addr)
-	addrRS := strings.ToLower(addrR.String())
-
-	if strings.Compare(addr, addrRS) == 0 {
-		return false, nil
-	}
-
-	return true, nil
-}
-
-func RecoverAddress(hash, signatureS string) (common.Address, error) {
-	sig, err := hexutil.Decode(signatureS)
-	data := []byte(hash)
 
 	if len(sig) != 65 {
 		return common.Address{}, fmt.Errorf("signature must be 65 bytes long")
@@ -37,10 +21,11 @@ func RecoverAddress(hash, signatureS string) (common.Address, error) {
 	}
 	sig[64] -= 27
 
-	rpk, err := crypto.Ecrecover(signHash(data), sig)
+	rpk, err := crypto.Ecrecover(data, sig)
 	if err != nil {
 		return common.Address{}, err
 	}
+
 	pubKey, err := crypto.UnmarshalPubkey(rpk)
 	if err != nil {
 		return common.Address{}, err

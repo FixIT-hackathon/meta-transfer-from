@@ -30,5 +30,5 @@ type Transfer struct {
 
 	R string `json:"r"`
 	S string `json:"s"`
-	V string `json:"v"`
+	V int    `json:"v"`
 }

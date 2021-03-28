@@ -1,9 +1,13 @@
+# github.com/Masterminds/squirrel v1.4.0
+github.com/Masterminds/squirrel
 # github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6
 github.com/StackExchange/wmi
 # github.com/VictoriaMetrics/fastcache v1.5.7
 github.com/VictoriaMetrics/fastcache
 # github.com/btcsuite/btcd v0.20.1-beta
 github.com/btcsuite/btcd/btcec
+# github.com/certifi/gocertifi v0.0.0-20200211180108-c7c1fbc02894
+github.com/certifi/gocertifi
 # github.com/cespare/xxhash/v2 v2.1.1
 github.com/cespare/xxhash/v2
 # github.com/cpuguy83/go-md2man/v2 v2.0.0
@@ -55,6 +59,7 @@ github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/modules/recove
 github.com/ethereum/go-ethereum/eth/downloader
 github.com/ethereum/go-ethereum/eth/protocols/eth
 github.com/ethereum/go-ethereum/eth/protocols/snap
+github.com/ethereum/go-ethereum/ethclient
 github.com/ethereum/go-ethereum/ethdb
 github.com/ethereum/go-ethereum/ethdb/leveldb
 github.com/ethereum/go-ethereum/ethdb/memorydb
@@ -78,19 +83,26 @@ github.com/ethereum/go-ethereum/rpc
 github.com/ethereum/go-ethereum/signer/core
 github.com/ethereum/go-ethereum/signer/storage
 github.com/ethereum/go-ethereum/trie
+# github.com/fatih/structs v1.1.0
+github.com/fatih/structs
 # github.com/fsnotify/fsnotify v1.4.9
 github.com/fsnotify/fsnotify
 # github.com/gballet/go-libpcsclite v0.0.0-20190607065134-2772fd86a8ff
 github.com/gballet/go-libpcsclite
+# github.com/getsentry/raven-go v0.2.0
+github.com/getsentry/raven-go
 # github.com/getsentry/sentry-go v0.7.0
 github.com/getsentry/sentry-go
 # github.com/go-chi/chi v4.1.2+incompatible
 github.com/go-chi/chi
+github.com/go-chi/chi/middleware
 # github.com/go-chi/cors v1.2.0
 github.com/go-chi/cors
 # github.com/go-ole/go-ole v1.2.1
 github.com/go-ole/go-ole
 github.com/go-ole/go-ole/oleutil
+# github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
+github.com/go-ozzo/ozzo-validation
 # github.com/go-stack/stack v1.8.0
 github.com/go-stack/stack
 # github.com/gobuffalo/logger v1.0.3
@@ -144,12 +156,23 @@ github.com/huin/goupnp/soap
 github.com/huin/goupnp/ssdp
 # github.com/jackpal/go-nat-pmp v1.0.2-0.20160603034137-1fa385a6f458
 github.com/jackpal/go-nat-pmp
+# github.com/jmoiron/sqlx v1.2.0
+github.com/jmoiron/sqlx
+github.com/jmoiron/sqlx/reflectx
 # github.com/karalabe/usb v0.0.0-20190919080040-51dc0efba356
 github.com/karalabe/usb
 # github.com/karrick/godirwalk v1.15.8
 github.com/karrick/godirwalk
 # github.com/konsorten/go-windows-terminal-sequences v1.0.3
 github.com/konsorten/go-windows-terminal-sequences
+# github.com/lann/builder v0.0.0-20180802200727-47ae307949d0
+github.com/lann/builder
+# github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0
+github.com/lann/ps
+# github.com/lib/pq v1.8.0
+github.com/lib/pq
+github.com/lib/pq/oid
+github.com/lib/pq/scram
 # github.com/magiconair/properties v1.8.4
 github.com/magiconair/properties
 # github.com/markbates/errx v1.1.0
@@ -162,7 +185,9 @@ github.com/markbates/safe
 github.com/mattn/go-runewidth
 # github.com/mitchellh/mapstructure v1.1.2
 github.com/mitchellh/mapstructure
-# github.com/olekukonko/tablewriter v0.0.2-0.20190409134802-7e037d187b0c
+# github.com/oklog/ulid v1.3.1
+github.com/oklog/ulid
+# github.com/olekukonko/tablewriter v0.0.2
 github.com/olekukonko/tablewriter
 # github.com/pelletier/go-toml v1.2.0
 github.com/pelletier/go-toml
@@ -174,6 +199,9 @@ github.com/pkg/errors
 github.com/prometheus/tsdb/fileutil
 # github.com/rjeczalik/notify v0.9.1
 github.com/rjeczalik/notify
+# github.com/rubenv/sql-migrate v0.0.0-20210215143335-f84234893558
+github.com/rubenv/sql-migrate
+github.com/rubenv/sql-migrate/sqlparse
 # github.com/russross/blackfriday/v2 v2.0.1
 github.com/russross/blackfriday/v2
 # github.com/shirou/gopsutil v2.20.5+incompatible
@@ -218,15 +246,21 @@ github.com/tyler-smith/go-bip39/wordlists
 github.com/urfave/cli
 # github.com/xr9kayu/logrus v0.7.2
 github.com/xr9kayu/logrus/sentry
+# gitlab.com/distributed_lab/ape v1.5.0
+gitlab.com/distributed_lab/ape
+gitlab.com/distributed_lab/ape/problems
 # gitlab.com/distributed_lab/figure v2.1.0+incompatible
 gitlab.com/distributed_lab/figure
 # gitlab.com/distributed_lab/kit v1.8.5
 gitlab.com/distributed_lab/kit/comfig
 gitlab.com/distributed_lab/kit/kv
+gitlab.com/distributed_lab/kit/pgdb
 # gitlab.com/distributed_lab/logan v3.8.0+incompatible
 gitlab.com/distributed_lab/logan/v3
 gitlab.com/distributed_lab/logan/v3/errors
 gitlab.com/distributed_lab/logan/v3/fields
+# gitlab.com/distributed_lab/lorem v0.2.0
+gitlab.com/distributed_lab/lorem
 # gitlab.com/tokend/sd3/erc20-bridge v0.0.0-20210323114155-c08dd4264219
 gitlab.com/tokend/sd3/erc20-bridge/pkg/signature
 # golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
@@ -295,6 +329,8 @@ google.golang.org/protobuf/reflect/protoregistry
 google.golang.org/protobuf/runtime/protoiface
 google.golang.org/protobuf/runtime/protoimpl
 google.golang.org/protobuf/types/descriptorpb
+# gopkg.in/gorp.v1 v1.7.2
+gopkg.in/gorp.v1
 # gopkg.in/ini.v1 v1.51.0
 gopkg.in/ini.v1
 # gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce
