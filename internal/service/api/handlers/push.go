@@ -66,7 +66,7 @@ func Push(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		errorsj := []*jsonapi.ErrorObject{{
 			Title:  http.StatusText(http.StatusInternalServerError),
-			Detail: "failed to add to db",
+			Detail: err.Error(),
 		}}
 		responses.WriteError(w, http.StatusInternalServerError, errorsj)
 		return

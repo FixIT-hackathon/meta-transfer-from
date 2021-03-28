@@ -1,7 +1,6 @@
 package resources
 
 import (
-	"encoding/json"
 	"net/http"
 	"time"
 )
@@ -11,10 +10,6 @@ type ListRequest struct {
 
 func NewListRequest(r *http.Request) (*ListRequest, error) {
 	var req ListRequest
-	err := json.NewDecoder(r.Body).Decode(&req)
-	if err != nil {
-		return nil, err
-	}
 
 	return &req, nil
 }

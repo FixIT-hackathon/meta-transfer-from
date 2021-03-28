@@ -1,0 +1,4 @@
+db:
+  driver: "postgres"
+  url: "postgres://auction:auction@localhost:5432/auction?sslmode=disable"
+

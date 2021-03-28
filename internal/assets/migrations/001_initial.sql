@@ -7,6 +7,7 @@ create table transfers
     receiver      text      not null,
     amount        text      not null,
     status        text      not null,
+    fee           text      not null,
     erc20         text      not null,
     r             text      not null,
     s             text      not null,

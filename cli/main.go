@@ -15,7 +15,7 @@ func Run(args []string) bool {
 	before := func(_ *cli.Context) error {
 		getter, err := kv.FromEnv()
 		if err != nil {
-			return err
+			panic(err)
 		}
 		cfg = config.NewConfig(getter)
 		return nil

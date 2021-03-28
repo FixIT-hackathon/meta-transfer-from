@@ -13,17 +13,18 @@ type Transfers interface {
 }
 
 type Transfer struct {
-	ID       int64  `db:"id" structs:"-"`
-	Sender   string `db:"sender" structs:"sender"`
-	Receiver string `db:"receiver" structs:"receiver"`
-	Fee      string `db:"fee" structs:"fee"`
-	ERC20    string `db:"erc20" structs:"erc20"`
-	Amount   string `db:"amount" structs:"amount"`
-	Status   string `db:"status" structs:"status"`
+	ID          int64  `db:"id" structs:"-"`
+	Sender      string `db:"sender" structs:"sender"`
+	Receiver    string `db:"receiver" structs:"receiver"`
+	Fee         string `db:"fee" structs:"fee"`
+	ERC20       string `db:"erc20" structs:"erc20"`
+	Amount      string `db:"amount" structs:"amount"`
+	Status      string `db:"status" structs:"status"`
+	IsCustomFee bool   `db:"is_custom_fee" structs:"is_custom_fee"`
 
 	R string `db:"r" structs:"r"`
-	S string `db:"r" structs:"s"`
-	V int    `db:"r" structs:"v"`
+	S string `db:"s" structs:"s"`
+	V int    `db:"v" structs:"v"`
 
 	CreatedAt *time.Time `db:"created_at" structs:"-"`
 }
