@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/ethereum/go-ethereum v1.10.1
 	github.com/go-chi/chi v4.1.2+incompatible
+	github.com/go-chi/cors v1.2.0
 	github.com/gobuffalo/packr/v2 v2.8.1
 	github.com/google/jsonapi v0.0.0-20210306203318-b10ff4bf785b
 	github.com/urfave/cli v1.22.1

@@ -15,7 +15,7 @@ type CraftRequest struct {
 	Nonce       big.Int        `json:"nonce"`
 	ChainID     big.Int        `json:"chain_id"`
 	Amount      big.Int        `json:"amount"`
-	Fee         big.Int        `json:"amount"`
+	Fee         big.Int        `json:"fee"`
 }
 
 func NewCraftRequest(r *http.Request) (*CraftRequest, error) {
