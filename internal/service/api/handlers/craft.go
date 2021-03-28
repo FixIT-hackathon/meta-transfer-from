@@ -52,7 +52,7 @@ func Craft(w http.ResponseWriter, r *http.Request) {
 			Message: signer.TypedDataMessage{
 				"receiver": req.Receiver,
 				"amount":   req.Amount,
-				"fee":      100,
+				"fee":      req.Fee,
 				"erc20":    req.ERC20,
 				"nonce":    req.Nonce,
 			},

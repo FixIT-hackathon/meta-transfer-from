@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"encoding/hex"
 	"fmt"
 	"github.com/FixIT-hackathon/meta-transfer-from/internal/data"
 	"github.com/FixIT-hackathon/meta-transfer-from/internal/service/api/resources"
@@ -47,21 +46,17 @@ func Push(w http.ResponseWriter, r *http.Request) {
 		responses.WriteError(w, http.StatusBadRequest, errorsj)
 		return
 	}
-
-	sigB, _ := hex.DecodeString(req.Signature)
-	param, _ := signature.ParseSignatureParameters(sigB)
-
 	_, err = TransfersQ(r).Create(data.Transfer{
 		Sender:   req.Sender,
 		Receiver: req.Receiver,
-		Fee:      "100",
+		Fee:      req.Fee,
 		Status:   "pending",
 		Amount:   req.Amount,
 		ERC20:    req.ERC20,
 
-		R: param.R,
-		S: param.S,
-		V: param.V,
+		R: req.R,
+		S: req.S,
+		V: req.V,
 	})
 	if err != nil {
 		errorsj := []*jsonapi.ErrorObject{{

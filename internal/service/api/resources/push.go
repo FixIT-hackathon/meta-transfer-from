@@ -15,6 +15,10 @@ type PushRequest struct {
 	Receiver  string `json:"receiver"`
 	Fee       string `json:"fee"`
 	ERC20     string `json:"erc20"`
+
+	R string `json:"r"`
+	S string `json:"s"`
+	V int    `json:"v"`
 }
 
 func NewPushRequest(r *http.Request) (*PushRequest, error) {
