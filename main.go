@@ -1,9 +1,12 @@
 package main
 
-import "os"
+import (
+	"github.com/FixIT-hackathon/meta-transfer-from/cli"
+	"os"
+)
 
 func main() {
-	if err := cli.Run(os.Args); err != nil {
+	if !cli.Run(os.Args) {
 		os.Exit(0)
 	}
 }
