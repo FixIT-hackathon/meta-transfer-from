@@ -16,6 +16,7 @@ func Router() chi.Router {
 	}))
 
 	r.Post("/craft", handlers.Craft)
+	r.Post("/push", handlers.Push)
 
 	return r
 }

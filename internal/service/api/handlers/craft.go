@@ -7,6 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/common/math"
 	signer "github.com/ethereum/go-ethereum/signer/core"
 	"github.com/google/jsonapi"
+	"math/big"
 	"net/http"
 )
 
@@ -21,9 +22,11 @@ func Craft(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	chainID := math.HexOrDecimal256(req.ChainID)
+	bchainID, _ := new(big.Int).SetString(req.ChainID, 10)
 
-	json.NewEncoder(w).Encode(&resources.CraftResponse{
+	hchainID := math.HexOrDecimal256(*bchainID)
+
+	resp := resources.CraftResponse{
 		signer.TypedData{
 			Types: signer.Types{
 				"TransferFrom": []signer.Type{
@@ -34,24 +37,27 @@ func Craft(w http.ResponseWriter, r *http.Request) {
 					{Name: "nonce", Type: "uint256"},
 				},
 				"EIP712Domain": []signer.Type{
-					{Name: "Name", Type: "string"},
+					{Name: "name", Type: "string"},
 					{Name: "chainId", Type: "uint256"},
-					{Name: "ve"},
+					{Name: "verifyingContract", Type: "address"},
 				},
 			},
-			PrimaryType: "Challenge",
+			PrimaryType: "TransferFrom",
 			Domain: signer.TypedDataDomain{
 				Name:    "RelayerEIP712",
-				ChainId: &chainID,
+				ChainId: &hchainID,
+				VerifyingContract: "0x414e1508153Ff4Eb4F22919C828db9E1715ffDaF",
 			},
 
 			Message: signer.TypedDataMessage{
 				"receiver": req.Receiver,
 				"amount":   req.Amount,
-				"fee":      req.Fee,
+				"fee":      100,
 				"erc20":    req.ERC20,
 				"nonce":    req.Nonce,
 			},
 		},
-	})
+	}
+
+	json.NewEncoder(w).Encode(resp.Map())
 }

@@ -2,18 +2,18 @@ package resources
 
 import (
 	"encoding/json"
-	"github.com/FixIT-hackathon/meta-transfer-from/pkg/signature"
 	signer "github.com/ethereum/go-ethereum/signer/core"
 	"net/http"
 )
 
 type PushRequest struct {
-	signer.TypedData
-	Signature signature.Parameters `json:"signature"`
+	signer.TypedData `json:"data"`
+	Signature        string `json:"signature_string"`
+	Sender           string `json:"sender"`
 }
 
-func NewPushRequest(r *http.Request) (*CraftRequest, error) {
-	var req CraftRequest
+func NewPushRequest(r *http.Request) (*PushRequest, error) {
+	var req PushRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		return nil, err

@@ -20,11 +20,15 @@ func NewListRequest(r *http.Request) (*ListRequest, error) {
 }
 
 type Transfer struct {
-	ID        int64  `json:"id"`
-	Sender    string `json:"sender"`
-	Receiver  string `json:"receiver"`
-	Amount    string `json:"amount"`
-	Status    string `json:"status"`
-	Fee       string `json:"fee"`
-	CreatedAt time.Time
+	ID        int64      `json:"id"`
+	Sender    string     `json:"sender"`
+	Receiver  string     `json:"receiver"`
+	Amount    string     `json:"amount"`
+	Status    string     `json:"status"`
+	Fee       string     `json:"fee"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+
+	R string `json:"r"`
+	S string `json:"s"`
+	V string `json:"v"`
 }

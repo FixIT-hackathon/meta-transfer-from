@@ -1,6 +1,6 @@
 -- +migrate Up
 
-create table transactions
+create table transfers
 (
     id            bigserial primary key,
     sender        text      not null,
@@ -16,7 +16,7 @@ create table transactions
 
 -- +migrate Down
 
-drop table flows;
+drop table transfers;
 
 
 
