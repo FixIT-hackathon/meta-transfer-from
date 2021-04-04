@@ -23,7 +23,6 @@ func Craft(w http.ResponseWriter, r *http.Request) {
 	}
 
 	bchainID, _ := new(big.Int).SetString(req.ChainID, 10)
-
 	hchainID := math.HexOrDecimal256(*bchainID)
 
 	resp := resources.CraftResponse{

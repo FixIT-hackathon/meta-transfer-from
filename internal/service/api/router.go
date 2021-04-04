@@ -26,15 +26,17 @@ func Router(cfg config.Config) chi.Router {
 	r.Use(cors.Handler(cors.Options{
 		AllowedOrigins: []string{"https://*", "http://*"},
 		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		MaxAge:         300, // Maximum value not ignored by any of major browsers
+		MaxAge:         300,
 	}),
 		ape.CtxMiddleware(
 			handlers.CtxTransfersQ(data.NewTransfers(db)),
+			handlers.CtxEthClient(cfg.Client()),
 		),
 	)
 
 	r.Post("/craft", handlers.Craft)
 	r.Post("/push", handlers.Push)
+	r.Post("/ethereum", handlers.RequestEthereum)
 	r.Get("/list", handlers.List)
 
 	return r

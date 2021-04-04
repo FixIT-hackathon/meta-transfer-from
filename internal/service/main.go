@@ -7,8 +7,7 @@ import (
 	"net/http"
 )
 
-type Service struct {
-}
+type Service struct{}
 
 func (s Service) Run(cfg config.Config) error {
 	r := api.Router(cfg)
